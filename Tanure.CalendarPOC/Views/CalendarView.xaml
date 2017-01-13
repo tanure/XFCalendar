@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tanure.CalendarPOC.Views.CalendarView">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>
+                0, 20, 0, 0
+            </OnPlatform.iOS>
+            <OnPlatform.Android>
+                10, 10, 10, 10
+            </OnPlatform.Android>
+            <OnPlatform.WinPhone>
+                10, 10, 10, 10
+            </OnPlatform.WinPhone>
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <!-- header control -->
+                <Grid Grid.Row="0" x:Name="gridControls">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="btnPrior" Text="Prior" HorizontalOptions="StartAndExpand" Grid.Column="0" Command="{Binding PriorCommand}"/>
+                    <Label x:Name="lblMonthYear" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" Grid.Column="1" Text="{Binding YearMonthLabel}"
+                           TextColor="White" FontAttributes="Bold" FontSize="Medium" />
+                    <Button x:Name="btnNext" Text="Next" HorizontalOptions="EndAndExpand" Grid.Column="2" Command="{Binding NextCommand}" />
+                </Grid>
+                
+                <!-- Calendar -->
+                <Grid Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="Start" x:Name="gridCalendar">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Labels days of week -->
+                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" x:Name="lblSun" Grid.Row="0" Grid.Column="0"  FontAttributes="Bold" />
+                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" x:Name="lblMon" Grid.Row="0" Grid.Column="1"  FontAttributes="Bold" />
+                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" x:Name="lblTue" Grid.Row="0" Grid.Column="2"  FontAttributes="Bold" />
+                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" x:Name="lblWed" Grid.Row="0" Grid.Column="3"  FontAttributes="Bold" />
+                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" x:Name="lblThu" Grid.Row="0" Grid.Column="4"  FontAttributes="Bold" />
+                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" x:Name="lblFri" Grid.Row="0" Grid.Column="5"  FontAttributes="Bold"/>
+                    <Label VerticalTextAlignment="Center" HorizontalTextAlignment="Center" x:Name="lblSat" Grid.Row="0" Grid.Column="6"  FontAttributes="Bold" />
+                    
+                    <!-- Days -->
+                    <StackLayout Orientation="Vertical" Grid.Column="0" x:Name="stklSun" Grid.Row="1" BackgroundColor="Silver" />
+                    <StackLayout Orientation="Vertical" Grid.Column="1" x:Name="stklMon" Grid.Row="1" />
+                    <StackLayout Orientation="Vertical" Grid.Column="2" x:Name="stklTue" Grid.Row="1" />
+                    <StackLayout Orientation="Vertical" Grid.Column="3" x:Name="stklWed" Grid.Row="1" />
+                    <StackLayout Orientation="Vertical" Grid.Column="4" x:Name="stklThu" Grid.Row="1" />
+                    <StackLayout Orientation="Vertical" Grid.Column="5" x:Name="stklFri" Grid.Row="1" />
+                    <StackLayout Orientation="Vertical" Grid.Column="6" x:Name="stklSat" Grid.Row="1" BackgroundColor="Silver" />
+                </Grid>
+                
+                <!-- selected dates -->
+                <ListView ItemsSource="{Binding SelectedDates}" Grid.Row="2" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Date, StringFormat='{0:MMM, dd, yy}'}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

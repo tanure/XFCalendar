@@ -14,13 +14,13 @@ namespace Tanure.CalendarPOC.ViewModels
 {
     public class CalendarViewModel : ViewModelBase
     {
-        public event EventHandler<Day[,]> OnMakeCalendar;
+        public event EventHandler<DayModel[,]> OnMakeCalendar;
 
-        private Tanure.CalendarPOC.Models.Calendar _calendar;
+        private Tanure.CalendarPOC.Models.CalendarModel _calendar;
 
         public CalendarViewModel()
         {
-            _calendar = new Tanure.CalendarPOC.Models.Calendar(DateTime.Now);
+            _calendar = new Tanure.CalendarPOC.Models.CalendarModel(DateTime.Now);
 
             this.PriorCommand = new Command(() =>
             {
@@ -52,7 +52,7 @@ namespace Tanure.CalendarPOC.ViewModels
 
         #endregion
 
-        public ObservableCollection<Day> SelectedDates
+        public ObservableCollection<DayModel> SelectedDates
         {
             get
             {

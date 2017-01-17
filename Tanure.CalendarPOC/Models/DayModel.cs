@@ -2,20 +2,20 @@
 
 namespace Tanure.CalendarPOC.Models
 {
-    public class Day
+    public class DayModel
     {
         public bool Selected { get; set; }
 
         public DateTime Date { get; protected set; }
 
-        public Day(DateTime date)
+        public DayModel(DateTime date)
         {
             this.Date = date;
         }
 
-        public static Day GetDayNothing()
+        public static DayModel GetDayNothing()
         {
-            return new Day(DateTime.MinValue);
+            return new DayModel(DateTime.MinValue);
         }
     }
 }

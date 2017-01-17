@@ -30,7 +30,7 @@ namespace Tanure.CalendarPOC.Views
             SetDaysOfWeekNames();
         }
 
-        private void Vm_OnMakeCalendar(object sender, Models.Day[,] e)
+        private void Vm_OnMakeCalendar(object sender, Models.DayModel[,] e)
         {
             stklSun.Children.Clear();
             stklMon.Children.Clear();
@@ -52,14 +52,14 @@ namespace Tanure.CalendarPOC.Views
             }
         }
 
-        private void SetItem(StackLayout stk, int line, int col, Models.Day[,] calendar)
+        private void SetItem(StackLayout stk, int line, int col, Models.DayModel[,] calendar)
         {   
             DayViewTemplate tpl = null;
 
             if (calendar[line, col] != null)
                 tpl = new DayViewTemplate(calendar[line, col]);
             else
-                tpl = new DayViewTemplate(Day.GetDayNothing());
+                tpl = new DayViewTemplate(DayModel.GetDayNothing());
 
             tpl.OnSelected += Tpl_OnSelected;
 

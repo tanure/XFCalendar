@@ -32,10 +32,10 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="btnPrior" Text="Prior" HorizontalOptions="StartAndExpand" Grid.Column="0" Command="{Binding PriorCommand}"/>
-                    <Label x:Name="lblMonthYear" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" Grid.Column="1" Text="{Binding YearMonthLabel}"
+                    <Button x:Name="btnPrior" Text="Prior" AutomationId="ButtonBefore" HorizontalOptions="StartAndExpand" Grid.Column="0" Command="{Binding PriorCommand}"/>
+                    <Label x:Name="lblMonthYear" HorizontalOptions="CenterAndExpand" AutomationId="LabelMonthYear" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" Grid.Column="1" Text="{Binding YearMonthLabel}"
                            TextColor="White" FontAttributes="Bold" FontSize="Medium" />
-                    <Button x:Name="btnNext" Text="Next" HorizontalOptions="EndAndExpand" Grid.Column="2" Command="{Binding NextCommand}" />
+                    <Button x:Name="btnNext" Text="Next" AutomationId="ButtonAfter" HorizontalOptions="EndAndExpand" Grid.Column="2" Command="{Binding NextCommand}" />
                 </Grid>
                 
                 <!-- Calendar -->
@@ -75,7 +75,7 @@
                 </Grid>
                 
                 <!-- selected dates -->
-                <ListView ItemsSource="{Binding SelectedDates}" Grid.Row="2" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                <ListView ItemsSource="{Binding SelectedDates}" AutomationId="ListViewDate" Grid.Row="2" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextCell Text="{Binding Date, StringFormat='{0:MMM, dd, yy}'}" />

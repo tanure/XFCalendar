@@ -11,12 +11,12 @@ namespace Tanure.CalendarPOC.ViewModels
 {
     public class DayViewModel : ViewModelBase
     {
-        private Day _dayModel;
+        private DayModel _dayModel;
         private Color _selectedColor;
 
         public event EventHandler OnSelected;
 
-        public DayViewModel(Day dayModel)
+        public DayViewModel(DayModel dayModel)
         {
             _dayModel = dayModel;
 

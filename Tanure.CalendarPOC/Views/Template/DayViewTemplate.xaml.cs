@@ -13,20 +13,22 @@ namespace Tanure.CalendarPOC.Views.Template
     {
         public event EventHandler OnSelected;
 
-        public DayViewTemplate(Day currentDay)
+        public DayViewTemplate(DayModel currentDay)
         {
             InitializeComponent();
 
             DayViewModel vm = new DayViewModel(currentDay);
 
             this.BindingContext = vm;
+            
             vm.OnSelected += Vm_OnSelected;
+
+            this.lblDay.AutomationId = string.Format("LabelDay_{0}", currentDay.Date.ToString("dd"));
         }
 
         private void Vm_OnSelected(object sender, EventArgs e)
         {
-            if (OnSelected != null)
-                OnSelected(this, new EventArgs());
+            OnSelected?.Invoke(this, new EventArgs());
         }
     }
 }

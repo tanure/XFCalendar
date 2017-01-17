@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Tanure.CalendarPOC.Models
 {
-    public class Calendar
+    public class CalendarModel
     {
         #region [ Constants ]
 
@@ -18,11 +18,11 @@ namespace Tanure.CalendarPOC.Models
 
         private DateTime currentDate;
 
-        private Day[,] currentCalendar;
+        private DayModel[,] currentCalendar;
 
         
 
-        public Day[,] CurrentCalendar
+        public DayModel[,] CurrentCalendar
         {
             get
             {
@@ -46,9 +46,9 @@ namespace Tanure.CalendarPOC.Models
             }
         }
 
-        public ObservableCollection<Day> GetSelectedDates()
+        public ObservableCollection<DayModel> GetSelectedDates()
         {
-            ObservableCollection<Day> selectedDates = new ObservableCollection<Day>();
+            ObservableCollection<DayModel> selectedDates = new ObservableCollection<DayModel>();
 
             for (int i = 0; i < currentCalendar.GetLength(0); i++)
             {
@@ -62,7 +62,7 @@ namespace Tanure.CalendarPOC.Models
             return selectedDates;
         }
 
-        public Calendar(DateTime baseDate)       
+        public CalendarModel(DateTime baseDate)       
         {   
             currentDate = baseDate;
             this.MakeCurrentCalendar();
@@ -82,17 +82,17 @@ namespace Tanure.CalendarPOC.Models
 
         private void MakeCurrentCalendar()
         {
-            currentCalendar = new Day[MAX_WEEKS, MAX_DAYS];
+            currentCalendar = new DayModel[MAX_WEEKS, MAX_DAYS];
 
             int lastDay = DateTime.DaysInMonth(currentDate.Year, currentDate.Month);
 
             DateTime cDate = new DateTime(currentDate.Year, currentDate.Month, 1);
 
-            Day dayCellAux = null;
+            DayModel dayCellAux = null;
 
             for (int i = 1, line = 0; i <= lastDay; i++)
             {
-                dayCellAux = new Day(cDate)
+                dayCellAux = new DayModel(cDate)
                 {
                     Selected = false
                 };

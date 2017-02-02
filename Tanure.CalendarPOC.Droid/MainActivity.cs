@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Microsoft.Azure.Mobile;
 
 namespace Tanure.CalendarPOC.Droid
 {
@@ -19,6 +20,8 @@ namespace Tanure.CalendarPOC.Droid
 
             base.OnCreate(bundle);
 
+
+            MobileCenter.Configure("bfd769be-f811-49d7-b3cd-6edd30e6b017");
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }

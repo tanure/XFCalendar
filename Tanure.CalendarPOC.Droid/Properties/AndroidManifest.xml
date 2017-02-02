@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.codefc.calendarpoc" android:installLocation="auto" android:versionName="1.0.'" android:versionCode="2">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="Tanure.CalendarPOC.Droid"></application>
+	<application android:label="Tanure.CalendarPOC.Droid" android:icon="@drawable/icon"></application>
 </manifest>

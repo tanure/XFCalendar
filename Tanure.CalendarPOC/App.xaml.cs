@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using Tanure.CalendarPOC.Views;
 using Xamarin.Forms;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 namespace Tanure.CalendarPOC
 {
@@ -13,7 +16,11 @@ namespace Tanure.CalendarPOC
         {
             InitializeComponent();
 
+
+            MobileCenter.Start(typeof(Analytics), typeof(Crashes));
+
             MainPage = new CalendarView();
+
         }
 
         protected override void OnStart()

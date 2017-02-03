@@ -5,7 +5,7 @@
             <StackLayout.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding DayClick}"></TapGestureRecognizer>
             </StackLayout.GestureRecognizers>
-                <Label Text="{Binding Text}}" x:Name="lblDay" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"/>
+                <Label Text="{Binding Text}" x:Name="lblDay" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>
